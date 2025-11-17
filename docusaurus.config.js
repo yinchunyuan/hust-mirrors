@@ -18,7 +18,7 @@ const config = {
   baseUrl: '/',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  
 
   i18n: {
     defaultLocale: 'zh-Hans',
@@ -31,7 +31,7 @@ const config = {
       ({
         docs: {
           sidebarPath: require.resolve('./sidebars.js'),
-          remarkPlugins: [require('./plugin/remark/varcode'), require('./plugin/remark/cliAd')],
+          remarkPlugins: [require('./plugin/remark/yamlcli'), require('./plugin/remark/varcode'), require('./plugin/remark/cliAd'), ],
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           // editUrl:
@@ -101,7 +101,12 @@ const config = {
     require('./plugin/fancyindex'),
     require('./plugin/cgit'),
     require('./plugin/news')
-  ]
+  ],
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    }
+  }
 };
 
 module.exports = config;
